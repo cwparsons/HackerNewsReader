@@ -40,6 +40,7 @@ export default styles = StyleSheet.create({
 		marginTop: pt(1)
 	},
 	metadataColumn: {
+		flexBasis: 0,
 		flexGrow: 1
 	},
 	metadataText: {
