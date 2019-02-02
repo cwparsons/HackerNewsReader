@@ -1,6 +1,6 @@
-import GetStory from './GetStory';
+import { GetStory } from './GetStory';
 
-export default async function GetTopStories() {
+export async function GetTopStories() {
 	console.log(`Getting top stories...`);
 
 	try {

@@ -1,10 +1,15 @@
+import moment from 'moment';
+
 /**
  * @param {number} id
  */
-export default async function GetStory(id) {
+export async function GetStory(id) {
 	console.log(`Getting story id ${id}`);
 
-	const story = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+	const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
 
-	return await story.json();
+	const story = await storyResponse.json();
+	story.timeAgo = moment(story.time, 'X').fromNow();
+
+	return story;
 }
