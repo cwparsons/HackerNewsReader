@@ -1,33 +1,10 @@
-import { GetStory } from './GetStory';
-
-const PAGE_SIZE = 20;
-
-let topStoriesList;
-
-export async function GetTopStories(currentPage = 0, refresh = false) {
-	const startItem = PAGE_SIZE * currentPage;
-	const endItem = PAGE_SIZE * (currentPage + 1);
-
-	console.log(`Getting stories from ${startItem} to ${endItem}.`);
-
+export async function GetTopStories(currentPage = 1) {
 	try {
-		if (!topStoriesList || refresh) {
-			const topStoriesRequest = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
-			topStoriesList = await topStoriesRequest.json();
-		}
+		const topStoriesRequest = await fetch(`https://api.hnpwa.com/v0/news/${currentPage}.json`);
 
-		console.log(`Retrieved top stories: ${JSON.stringify(topStoriesList)}`);
+		console.log(`Retrieved top stories: ${JSON.stringify(topStoriesRequest)}`);
 
-		const topStoriesPromises = topStoriesList.slice(startItem, endItem).map(async (item) => {
-			const story = await GetStory(item);
-
-			return {
-				id: item,
-				...story
-			};
-		});
-
-		return await Promise.all(topStoriesPromises);
+		return await topStoriesRequest.json();
 	} catch (e) {
 		console.log('Error retrieving top stories');
 	}

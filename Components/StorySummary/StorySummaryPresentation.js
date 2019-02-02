@@ -8,13 +8,13 @@ export class StorySummaryPresentation extends React.PureComponent {
 			<View>
 				<TouchableHighlight onPress={this.props.onItemUrlPress}>
 					<View style={styles.row}>
-						<View>
+						<View style={styles.rankContainer}>
 							<View style={[
-								styles.rankContainer,
+								styles.rank,
 								(
 									this.props.hasViewed ?
-										styles.rankContainerViewed
-										: styles.rankContainerNotViewed
+										styles.rankViewed
+										: styles.rankNotViewed
 								)
 							]}>
 								<Text style={styles.rankText}>{this.props.index}</Text>
@@ -22,24 +22,30 @@ export class StorySummaryPresentation extends React.PureComponent {
 						</View>
 						<View style={styles.textContainer}>
 							<View>
-								<Text style={[styles.titleText]}>{this.props.item.title}</Text>
+								<Text style={[styles.titleText]}>
+									{this.props.item.title} {' '}
+
+									<Text style={[styles.metadataText]}>
+										{this.props.item.domain}
+									</Text>
+								</Text>
 							</View>
 							<View style={styles.metadataContainer}>
 								<View style={styles.metadataColumn}>
 									<Text style={[styles.metadataText]}>
-										{this.props.item.score} {this.props.item.score === 1 ? 'point' : 'points'}
+										{this.props.item.points} {this.props.item.points === 1 ? 'point' : 'points'}
 									</Text>
 								</View>
 								<View style={[styles.metadataColumn, { alignItems: 'center' }]}>
-									<TouchableHighlight onPress={this.onItemCommentPress}>
+									<TouchableHighlight onPress={this.props.onItemCommentPress}>
 										<Text style={[styles.metadataText]}>
-											{this.props.item.descendants} {this.props.item.descendants === 1 ? 'comment' : 'comments'}
+											{this.props.item.comments_count} {this.props.item.comments_count === 1 ? 'comment' : 'comments'}
 										</Text>
 									</TouchableHighlight>
 								</View>
 								<View style={[styles.metadataColumn, { alignItems: 'flex-end' }]}>
 									<Text style={[styles.metadataText]}>
-										{this.props.item.timeAgo}
+										{this.props.item.time_ago}
 									</Text>
 								</View>
 							</View>

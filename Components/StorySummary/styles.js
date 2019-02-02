@@ -8,7 +8,7 @@ export default styles = StyleSheet.create({
 		flexDirection: 'row',
 		padding: pt(2)
 	},
-	rankContainer: {
+	rank: {
 		alignItems: 'center',
 		flexDirection: 'row',
 		height: pt(6),
@@ -16,10 +16,10 @@ export default styles = StyleSheet.create({
 		padding: pt(1),
 		width: pt(6)
 	},
-	rankContainerViewed: {
+	rankViewed: {
 		backgroundColor: LIGHT_GREY
 	},
-	rankContainerNotViewed: {
+	rankNotViewed: {
 		backgroundColor: ORANGE
 	},
 	rankText: {

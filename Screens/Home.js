@@ -13,7 +13,7 @@ export default class Home extends React.Component {
 		};
 	}
 
-	currentPage = 0;
+	currentPage = 1;
 
 	componentDidMount() {
 		this.getStories();
@@ -24,9 +24,9 @@ export default class Home extends React.Component {
 			isRefreshing: true
 		});
 
-		this.currentPage = 0;
+		this.currentPage = 1;
 
-		const data = await GetTopStories(this.currentPage, true);
+		const data = await GetTopStories(this.currentPage);
 
 		this.setState({
 			isRefreshing: false,
