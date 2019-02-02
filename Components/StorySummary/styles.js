@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { pt, FONT_SIZE } from '../../Configuration/globalStyles';
+import { pt, FONT_SIZE, ORANGE, PRIMARY_TEXT_COLOR, SECONDARY_TEXT_COLOR, LIGHT_GREY } from '../../Configuration/globalStyles';
 
 export default styles = StyleSheet.create({
 	row: {
@@ -10,15 +10,20 @@ export default styles = StyleSheet.create({
 	},
 	rankContainer: {
 		alignItems: 'center',
-		backgroundColor: 'orange',
 		flexDirection: 'row',
 		height: pt(6),
 		justifyContent: 'center',
 		padding: pt(1),
 		width: pt(6)
 	},
+	rankContainerViewed: {
+		backgroundColor: LIGHT_GREY
+	},
+	rankContainerNotViewed: {
+		backgroundColor: ORANGE
+	},
 	rankText: {
-		color: 'white',
+		color: PRIMARY_TEXT_COLOR,
 		fontSize: 16,
 		fontWeight: '700'
 	},
@@ -27,16 +32,18 @@ export default styles = StyleSheet.create({
 		marginLeft: pt(2)
 	},
 	titleText: {
-		color: 'white',
+		color: PRIMARY_TEXT_COLOR,
 		fontSize: FONT_SIZE
 	},
 	metadataContainer: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
 		marginTop: pt(1)
 	},
+	metadataColumn: {
+		flexGrow: 1
+	},
 	metadataText: {
-		color: 'white',
+		color: SECONDARY_TEXT_COLOR,
 		fontSize: 14
 	}
 });
