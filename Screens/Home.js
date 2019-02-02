@@ -2,10 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import StoryList from '../Components/StoryList';
 import { GetTopStories } from '../Services/GetTopStories';
+import { ORANGE, PRIMARY_TEXT_COLOR } from '../Configuration/globalStyles';
 
 export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.currentPage = 1;
 
 		this.state = {
 			isRefreshing: false,
@@ -13,7 +16,9 @@ export default class Home extends React.Component {
 		};
 	}
 
-	currentPage = 1;
+	static navigationOptions = {
+		title: 'Hacker News'
+	};
 
 	componentDidMount() {
 		this.getStories();
