@@ -9,9 +9,11 @@ export default class Home extends React.Component {
 
 		this.state = {
 			isRefreshing: false,
-			topStories: []
+			data: []
 		};
 	}
+
+	currentPage = 0;
 
 	componentDidMount() {
 		this.getStories();
@@ -22,11 +24,21 @@ export default class Home extends React.Component {
 			isRefreshing: true
 		});
 
-		const topStories = await GetTopStories();
+		this.currentPage = 0;
+
+		const data = await GetTopStories(this.currentPage, true);
 
 		this.setState({
 			isRefreshing: false,
-			topStories
+			data
+		});
+	}
+
+	async getMoreStories() {
+		const moreData = await GetTopStories(++this.currentPage);
+
+		this.setState({
+			data: [...this.state.data, ...moreData]
 		});
 	}
 
@@ -34,8 +46,9 @@ export default class Home extends React.Component {
 		return (
 			<View>
 				<StoryList
-					data={this.state.topStories}
+					data={this.state.data}
 					onRefresh={this.getStories.bind(this)}
+					onEndReached={this.getMoreStories.bind(this)}
 					refreshing={this.state.isRefreshing}
 				/>
 			</View>

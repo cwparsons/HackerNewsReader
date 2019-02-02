@@ -21,41 +21,39 @@ export class StorySummary extends React.PureComponent {
 	render() {
 		return (
 			<View>
-				<View style={styles.row}>
-					<View>
-						<TouchableHighlight onPress={this.onItemUrlPress}>
+				<TouchableHighlight onPress={this.onItemUrlPress}>
+					<View style={styles.row}>
+						<View>
 							<View style={styles.rankContainer}>
 								<Text style={styles.rankText}>{this.props.index}</Text>
 							</View>
-						</TouchableHighlight>
-					</View>
-					<View style={styles.textContainer}>
-						<View>
-							<TouchableHighlight onPress={this.onItemUrlPress}>
+						</View>
+						<View style={styles.textContainer}>
+							<View>
 								<Text style={[styles.titleText]}>{this.props.item.title}</Text>
-							</TouchableHighlight>
-						</View>
-						<View style={styles.metadataContainer}>
-							<View>
-								<Text style={[styles.metadataText]}>
-									{this.props.item.score} {this.props.item.score === 1 ? 'point' : 'points'}
-								</Text>
 							</View>
-							<View>
-								<TouchableHighlight onPress={this.onItemCommentPress}>
+							<View style={styles.metadataContainer}>
+								<View>
 									<Text style={[styles.metadataText]}>
-										{this.props.item.descendants} {this.props.item.descendants === 1 ? 'comment' : 'comments'}
+										{this.props.item.score} {this.props.item.score === 1 ? 'point' : 'points'}
 									</Text>
-								</TouchableHighlight>
-							</View>
-							<View>
-								<Text style={[styles.metadataText]}>
-									{this.props.item.timeAgo}
-								</Text>
+								</View>
+								<View>
+									<TouchableHighlight onPress={this.onItemCommentPress}>
+										<Text style={[styles.metadataText]}>
+											{this.props.item.descendants} {this.props.item.descendants === 1 ? 'comment' : 'comments'}
+										</Text>
+									</TouchableHighlight>
+								</View>
+								<View>
+									<Text style={[styles.metadataText]}>
+										{this.props.item.timeAgo}
+									</Text>
+								</View>
 							</View>
 						</View>
 					</View>
-				</View>
+				</TouchableHighlight>
 			</View>
 		);
 	}
