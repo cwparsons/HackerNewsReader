@@ -6,7 +6,7 @@ export class StoryList extends React.PureComponent {
 	render() {
 		return (
 			<FlatList
-				data={this.props.data}
+				{...this.props}
 				keyExtractor={(item) => item.id.toString()}
 				renderItem={({ item, index }) =>
 					<StorySummary

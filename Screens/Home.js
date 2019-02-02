@@ -2,14 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import StoryList from '../Components/StoryList';
 import { GetTopStories } from '../Services/GetTopStories';
-import LoadingIndicator from '../Components/LoadingIndicator';
 
 export default class Home extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			isLoading: false,
+			isRefreshing: false,
 			topStories: []
 		};
 	}
@@ -20,13 +19,13 @@ export default class Home extends React.Component {
 
 	async getStories() {
 		this.setState({
-			isLoading: true
+			isRefreshing: true
 		});
 
 		const topStories = await GetTopStories();
 
 		this.setState({
-			isLoading: false,
+			isRefreshing: false,
 			topStories
 		});
 	}
@@ -34,9 +33,11 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<View>
-				<LoadingIndicator isLoading={this.state.isLoading}>
-					<StoryList data={this.state.topStories} />
-				</LoadingIndicator>
+				<StoryList
+					data={this.state.topStories}
+					onRefresh={this.getStories.bind(this)}
+					refreshing={this.state.isRefreshing}
+				/>
 			</View>
 		);
 	}
