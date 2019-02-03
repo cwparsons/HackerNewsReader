@@ -16,7 +16,7 @@ export class StoryList extends React.PureComponent {
 					keyExtractor={(item) => item.id.toString()}
 					renderItem={({ item, index }) => (
 						<StorySummary
-							key={item.id.toString()}
+							key={`${index}-${item.id.toString()}`}
 							index={index + 1}
 							item={item}
 							navigation={this.props.navigation}
