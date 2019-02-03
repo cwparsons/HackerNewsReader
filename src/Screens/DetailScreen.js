@@ -57,7 +57,7 @@ export class DetailScreen extends React.Component {
 								paddingRight: 16
 							}}
 						>
-							<CommentList comments={this.state.data.comments} />
+							<CommentList comments={this.state.data.comments} root={true} />
 						</View>
 					) : null}
 				</LoadingIndicator>

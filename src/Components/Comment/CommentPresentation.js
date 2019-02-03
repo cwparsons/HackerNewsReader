@@ -47,7 +47,7 @@ export class CommentPresentation extends React.PureComponent {
 								</View>
 
 								{this.props.comments ? (
-									<CommentList comments={this.props.comments} />
+									<CommentList comments={this.props.comments} root={false} />
 								) : null}
 							</View>
 						</View>
