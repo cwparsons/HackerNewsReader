@@ -31,7 +31,11 @@ export class StorySummary extends React.Component {
 				return hasViewed === 'true';
 			}
 		} catch (e) {
-			console.log(`Error trying to retrieve the viewed status for item ${this.props.item.id}.`);
+			console.log(
+				`Error trying to retrieve the viewed status for item ${
+					this.props.item.id
+				}.`
+			);
 		}
 
 		return false;
@@ -47,7 +51,9 @@ export class StorySummary extends React.Component {
 
 			console.log(`Set viewed status for ${this.props.item.id} to true.`);
 		} catch (e) {
-			console.log(`Error trying to set the viewed status for item ${this.props.item.id}.`);
+			console.log(
+				`Error trying to set the viewed status for item ${this.props.item.id}.`
+			);
 		}
 	}
 

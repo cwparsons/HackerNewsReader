@@ -6,20 +6,22 @@ import { GREY_DARK } from '../../Configuration/globalStyles';
 export class StoryList extends React.PureComponent {
 	render() {
 		return (
-			<View style={{
-				backgroundColor: GREY_DARK
-			}}>
+			<View
+				style={{
+					backgroundColor: GREY_DARK
+				}}
+			>
 				<FlatList
 					{...this.props}
 					keyExtractor={(item) => item.id.toString()}
-					renderItem={({ item, index }) =>
+					renderItem={({ item, index }) => (
 						<StorySummary
 							key={item.id.toString()}
 							index={index + 1}
 							item={item}
 							navigation={this.props.navigation}
 						/>
-					}
+					)}
 				/>
 			</View>
 		);

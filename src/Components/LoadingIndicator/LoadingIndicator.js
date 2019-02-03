@@ -9,18 +9,11 @@ export class LoadingIndicator extends React.PureComponent {
 		if (this.props.isLoading) {
 			return (
 				<View style={styles.row}>
-					<ActivityIndicator
-						size="large"
-						color={ORANGE}
-					/>
+					<ActivityIndicator size="large" color={ORANGE} />
 				</View>
-			)
+			);
 		}
 
-		return (
-			<>
-				{this.props.children}
-			</>
-		);
+		return <>{this.props.children}</>;
 	}
 }

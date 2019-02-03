@@ -1,9 +1,5 @@
+import { StyleSheet } from 'react-native';
 import {
-	StyleSheet
-} from 'react-native';
-import {
-	FONT_SIZE,
-	LINE_HEIGHT,
 	pt,
 	SECONDARY_FONT_SIZE,
 	WHITE_25,
@@ -39,25 +35,15 @@ export const styles = StyleSheet.create({
 		marginBottom: pt(2),
 		marginLeft: pt(1),
 		marginTop: 4,
-		paddingRight: pt(0.75),
+		paddingRight: pt(0.75)
 	},
 	contentColumn: {
 		flex: 1
 	},
 	contentContainer: {
 		paddingLeft: pt(1)
-	}
-});
-
-export const tagsStyles = {
-	p: {
-		color: WHITE,
-		fontSize: FONT_SIZE,
-		lineHeight: LINE_HEIGHT,
-		marginBottom: pt(2),
-		marginTop: 0
 	},
-	a: {
+	noCommentsText: {
 		color: WHITE
 	}
-};
+});

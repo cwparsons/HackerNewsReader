@@ -5,7 +5,7 @@ import { CommentPresentation } from './CommentPresentation';
 
 export class Comment extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = {
 			isExpanded: true
