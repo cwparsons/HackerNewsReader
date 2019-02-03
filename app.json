@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Hacker News App",
-    "slug": "HackerNewsApp",
+    "name": "Hacker News Reader",
+    "slug": "HackerNewsReader",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -26,6 +26,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.cwparsons.hackernewsreader",
       "adaptiveIcon": {
         "backgroundColor": "#ff6500",
         "foregroundImage": "./assets/icon-android/icon-foreground.png"
@@ -37,7 +38,7 @@
           "file": "sentry-expo/upload-sourcemaps",
           "config": {
             "organization": "christopher-parsons",
-            "project": "hackernewsapp",
+            "project": "hackernewsreader",
             "authToken": "***REMOVED***"
           }
         }

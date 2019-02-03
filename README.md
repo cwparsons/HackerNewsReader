@@ -1,2 +1,3 @@
-# HackerNewsApp
-A Hacker News app built using React Native.
+# Hacker News Reader
+
+A Hacker News Reader built using React Native.
