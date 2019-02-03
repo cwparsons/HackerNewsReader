@@ -43,14 +43,15 @@ export default class DetailScreen extends React.Component {
 					index={this.props.navigation.getParam('index')}
 					item={this.state.data}
 				/>
-				<View styles={{
-					paddingLeft: pt(1),
-					paddingRight: pt(2)
-				}}>
-					<LoadingIndicator isLoading={this.state.isLoading}>
-						<CommentList comments={this.state.data.comments} />
-					</LoadingIndicator>
-				</View>
+				<LoadingIndicator isLoading={this.state.isLoading}>
+					<View style={{
+						marginTop: 8,
+						paddingLeft: 8,
+						paddingRight: 16
+					}}>
+							<CommentList comments={this.state.data.comments} />
+					</View>
+				</LoadingIndicator>
 			</ScrollView>
 		);
 	}
