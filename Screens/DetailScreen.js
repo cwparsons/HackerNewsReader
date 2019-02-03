@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import GetStoryDetail from '../Services/GetStoryDetail';
 import CommentList from '../Components/CommentList';
-import { StorySummaryPresentation } from '../Components/StorySummary/StorySummaryPresentation';
 import LoadingIndicator from '../Components/LoadingIndicator';
+import { StorySummaryPresentation } from '../Components/StorySummary/StorySummaryPresentation';
 import { BACKGROUND_COLOR, pt } from '../Configuration/globalStyles';
 
 export default class DetailScreen extends React.Component {
@@ -37,17 +37,20 @@ export default class DetailScreen extends React.Component {
 	render() {
 		return (
 			<ScrollView style={{
-				backgroundColor: BACKGROUND_COLOR,
-				paddingLeft: pt(1),
-				paddingRight: pt(2)
+				backgroundColor: BACKGROUND_COLOR
 			}}>
 				<StorySummaryPresentation
 					index={this.props.navigation.getParam('index')}
 					item={this.state.data}
 				/>
-				<LoadingIndicator isLoading={this.state.isLoading}>
-					<CommentList comments={this.state.data.comments} />
-				</LoadingIndicator>
+				<View styles={{
+					paddingLeft: pt(1),
+					paddingRight: pt(2)
+				}}>
+					<LoadingIndicator isLoading={this.state.isLoading}>
+						<CommentList comments={this.state.data.comments} />
+					</LoadingIndicator>
+				</View>
 			</ScrollView>
 		);
 	}
