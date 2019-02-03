@@ -18,7 +18,7 @@ export class DetailScreen extends React.Component {
 	}
 
 	static navigationOptions = {
-		title: 'Comments',
+		title: 'Comments'
 	};
 
 	componentDidMount() {
@@ -36,32 +36,30 @@ export class DetailScreen extends React.Component {
 
 	render() {
 		return (
-			<ScrollView style={{
-				backgroundColor: GREY_DARK
-			}}>
-				{
-					this.state.data || this.props.navigation.getParam('index').title ?
-						<StorySummaryPresentation
-							index={this.props.navigation.getParam('index')}
-							item={this.state.data}
-						/>
-						:
-						null
-				}
+			<ScrollView
+				style={{
+					backgroundColor: GREY_DARK
+				}}
+			>
+				{this.state.data || this.props.navigation.getParam('index').title ? (
+					<StorySummaryPresentation
+						index={this.props.navigation.getParam('index')}
+						item={this.state.data}
+					/>
+				) : null}
 
 				<LoadingIndicator isLoading={this.state.isLoading}>
-					{
-						this.state.data && this.state.data.comments ?
-							<View style={{
+					{this.state.data && this.state.data.comments ? (
+						<View
+							style={{
 								marginTop: 8,
 								paddingLeft: 8,
 								paddingRight: 16
-							}}>
-									<CommentList comments={this.state.data.comments} />
-							</View>
-							:
-							null
-					}
+							}}
+						>
+							<CommentList comments={this.state.data.comments} />
+						</View>
+					) : null}
 				</LoadingIndicator>
 			</ScrollView>
 		);

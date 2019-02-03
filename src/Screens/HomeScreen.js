@@ -49,15 +49,13 @@ export class HomeScreen extends React.Component {
 
 	render() {
 		return (
-			<View>
-				<StoryList
-					data={this.state.data}
-					onRefresh={this.getStories.bind(this)}
-					onEndReached={this.getMoreStories.bind(this)}
-					navigation={this.props.navigation}
-					refreshing={this.state.isRefreshing}
-				/>
-			</View>
+			<StoryList
+				data={this.state.data}
+				onRefresh={this.getStories.bind(this)}
+				onEndReached={this.getMoreStories.bind(this)}
+				navigation={this.props.navigation}
+				refreshing={this.state.isRefreshing}
+			/>
 		);
 	}
 }

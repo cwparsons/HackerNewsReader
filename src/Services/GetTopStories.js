@@ -6,7 +6,9 @@ export async function GetTopStories(currentPage = 1) {
 
 		const topStoriesRequest = await fetch(TEMPLATE(currentPage));
 
-		console.debug(`Retrieved top stories: ${JSON.stringify(topStoriesRequest)}`);
+		console.debug(
+			`Retrieved top stories: ${JSON.stringify(topStoriesRequest)}`
+		);
 
 		return await topStoriesRequest.json();
 	} catch (e) {

@@ -25,6 +25,7 @@ const AppNavigator = createStackNavigator(
 			},
 			headerTintColor: WHITE
 		}
-	});
+	}
+);
 
-export default AppContainer = createAppContainer(AppNavigator);
+export const AppContainer = createAppContainer(AppNavigator);

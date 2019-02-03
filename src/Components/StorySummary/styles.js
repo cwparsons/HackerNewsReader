@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import { pt, FONT_SIZE, ORANGE, WHITE, WHITE_70, GREY_LIGHT } from '../../Configuration/globalStyles';
 
 export const styles = StyleSheet.create({

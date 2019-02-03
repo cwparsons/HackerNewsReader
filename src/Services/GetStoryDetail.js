@@ -14,7 +14,11 @@ export default async function GetStoryDetail(id) {
 
 		const storyDetailResponse = await fetch(TEMPLATE(id));
 
-		console.debug(`Retrieved the story details for item ${id}: ${JSON.stringify(storyDetailResponse)}`);
+		console.debug(
+			`Retrieved the story details for item ${id}: ${JSON.stringify(
+				storyDetailResponse
+			)}`
+		);
 
 		return await storyDetailResponse.json();
 	} catch (e) {

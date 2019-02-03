@@ -1,5 +1,6 @@
 import React from 'react';
 import { AsyncStorage, Linking } from 'react-native';
+
 import { StorySummaryPresentation } from './StorySummaryPresentation';
 
 export class StorySummary extends React.Component {

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { App } from './src/App';
+import { AppContainer } from './src/Screens/AppContainer';
 
-export default class Bootstrap extends React.PureComponent {
+export default class App extends React.PureComponent {
 	render() {
 		return (
-			<App />
+			<AppContainer />
 		);
 	}
 }
