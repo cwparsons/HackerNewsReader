@@ -39,7 +39,10 @@ export class CommentPresentation extends React.PureComponent {
 											<Text style={styles.deletedText}>[deleted]</Text>
 										</View>
 									) : (
-										<HtmlView html={this.props.content} />
+										<HtmlView
+											html={this.props.content}
+											onLinkPress={this.props.onLinkPress}
+										/>
 									)}
 								</View>
 

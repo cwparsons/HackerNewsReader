@@ -8,12 +8,12 @@ export class HtmlView extends React.PureComponent {
 	render() {
 		return (
 			<HTML
+				{...this.props}
 				alterData={({ parent, data }) => {
 					if (parent && parent.name === 'code') {
 						return data.replace(/\n/g, '___CODE_NEWLINE___');
 					}
 				}}
-				html={this.props.html}
 				tagsStyles={tagsStyles}
 				renderers={{
 					code: (_htmlAttribs, _children, _convertedCssStyles, passProps) => {
