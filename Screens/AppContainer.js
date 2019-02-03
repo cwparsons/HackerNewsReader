@@ -13,8 +13,10 @@ const AppNavigator = createStackNavigator(
 		// When testing the detail page, automatically open to the detail page.
 		// initialRouteName: 'Detail',
 		// initialRouteParams: {
-		// 	id: 16493489,
-		// 	index: 1
+		// 	item: {
+		// 		id: 16493489,
+		// 		index: 1
+		// 	}
 		// },
 		defaultNavigationOptions: {
 			headerStyle: {

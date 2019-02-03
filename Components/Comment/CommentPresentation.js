@@ -43,8 +43,31 @@ export class CommentPresentation extends React.PureComponent {
 								<View style={styles.contentColumn}>
 									<View style={styles.contentContainer}>
 										<HTML
+											alterData={({ parent, data }) => {
+												if (parent && parent.name === "code") {
+														return data.replace(/\n/g, "___CODE_NEWLINE___");
+												}
+											}}
 											html={this.props.content}
 											tagsStyles={tagsStyles}
+											renderers={{
+												code: (_htmlAttribs, _children, _convertedCssStyles, passProps) => {
+													const children = passProps.rawChildren
+														.map(rawChild => rawChild.data)
+														.join("")
+														.split("___CODE_NEWLINE___");
+
+													return (
+														<React.Fragment key={passProps.key}>
+															{children.map((line, index) => (
+																<Text key={`${this.props.id}-code-${index}`} style={{ fontFamily: 'monospace' }}>
+																	{line} {'\n'}
+																</Text>
+															))}
+														</React.Fragment>
+													)
+												}
+											}}
 										/>
 									</View>
 

@@ -39,18 +39,29 @@ export default class DetailScreen extends React.Component {
 			<ScrollView style={{
 				backgroundColor: BACKGROUND_COLOR
 			}}>
-				<StorySummaryPresentation
-					index={this.props.navigation.getParam('index')}
-					item={this.state.data}
-				/>
+				{
+					this.state.data || this.props.navigation.getParam('index').title ?
+						<StorySummaryPresentation
+							index={this.props.navigation.getParam('index')}
+							item={this.state.data}
+						/>
+						:
+						null
+				}
+
 				<LoadingIndicator isLoading={this.state.isLoading}>
-					<View style={{
-						marginTop: 8,
-						paddingLeft: 8,
-						paddingRight: 16
-					}}>
-							<CommentList comments={this.state.data.comments} />
-					</View>
+					{
+						this.state.data && this.state.data.comments ?
+							<View style={{
+								marginTop: 8,
+								paddingLeft: 8,
+								paddingRight: 16
+							}}>
+									<CommentList comments={this.state.data.comments} />
+							</View>
+							:
+							null
+					}
 				</LoadingIndicator>
 			</ScrollView>
 		);
