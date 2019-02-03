@@ -17,6 +17,7 @@ export class StoryList extends React.PureComponent {
 							key={item.id.toString()}
 							index={index + 1}
 							item={item}
+							navigation={this.props.navigation}
 						/>
 					}
 				/>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
-import styles from './styles';
+import { styles } from './styles';
 
 export class StorySummaryPresentation extends React.PureComponent {
 	render() {
@@ -31,23 +31,18 @@ export class StorySummaryPresentation extends React.PureComponent {
 								</Text>
 							</View>
 							<View style={styles.metadataContainer}>
-								<View style={styles.metadataColumn}>
-									<Text style={[styles.metadataText]}>
-										{this.props.item.points} {this.props.item.points === 1 ? 'point' : 'points'}
-									</Text>
-								</View>
-								<View style={[styles.metadataColumn, { alignItems: 'center' }]}>
-									<TouchableHighlight onPress={this.props.onItemCommentPress}>
+								<TouchableHighlight onPress={this.props.onItemCommentPress}>
+									<View style={styles.metadataColumn}>
+										<Text style={[styles.metadataText]}>
+											{this.props.item.points} {this.props.item.points === 1 ? 'point' : 'points'}
+											{' by '}{this.props.item.user}
+											{' '}{this.props.item.time_ago}
+										</Text>
 										<Text style={[styles.metadataText]}>
 											{this.props.item.comments_count} {this.props.item.comments_count === 1 ? 'comment' : 'comments'}
 										</Text>
-									</TouchableHighlight>
-								</View>
-								<View style={[styles.metadataColumn, { alignItems: 'flex-end' }]}>
-									<Text style={[styles.metadataText]}>
-										{this.props.item.time_ago}
-									</Text>
-								</View>
+									</View>
+								</TouchableHighlight>
 							</View>
 						</View>
 					</View>

@@ -2,9 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import StoryList from '../Components/StoryList';
 import { GetTopStories } from '../Services/GetTopStories';
-import { ORANGE, PRIMARY_TEXT_COLOR } from '../Configuration/globalStyles';
 
-export default class Home extends React.Component {
+export default class HomeScreen extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -54,6 +53,7 @@ export default class Home extends React.Component {
 					data={this.state.data}
 					onRefresh={this.getStories.bind(this)}
 					onEndReached={this.getMoreStories.bind(this)}
+					navigation={this.props.navigation}
 					refreshing={this.state.isRefreshing}
 				/>
 			</View>

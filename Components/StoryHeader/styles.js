@@ -11,17 +11,12 @@ export const styles = StyleSheet.create({
 	},
 	rank: {
 		alignItems: 'center',
+		backgroundColor: ORANGE,
 		flexDirection: 'row',
 		height: pt(6),
 		justifyContent: 'center',
 		padding: pt(1),
 		width: pt(6)
-	},
-	rankViewed: {
-		backgroundColor: LIGHT_GREY
-	},
-	rankNotViewed: {
-		backgroundColor: ORANGE
 	},
 	rankText: {
 		color: WHITE,

@@ -47,7 +47,10 @@ export class StorySummary extends React.Component {
 	}
 
 	onItemCommentPress() {
-		Linking.openURL(`https://news.ycombinator.com/item?id=${this.props.item.id}`);
+		this.props.navigation.navigate('Detail', {
+			index: this.props.index,
+			item: this.props.item
+		});
 	}
 
 	async onItemUrlPress() {

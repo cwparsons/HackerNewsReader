@@ -1,18 +1,26 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation';
-import Home from './/Home';
-import { ORANGE, PRIMARY_TEXT_COLOR } from '../Configuration/globalStyles';
+import HomeScreen from './HomeScreen';
+import DetailScreen from './DetailScreen';
+import { ORANGE, WHITE } from '../Configuration/globalStyles';
 
 const AppNavigator = createStackNavigator(
 	{
-		Home: { screen: Home }
+		Home: { screen: HomeScreen },
+		Detail: { screen: DetailScreen }
 	},
 	{
 		initialRouteName: 'Home',
+		// When testing the detail page, automatically open to the detail page.
+		// initialRouteName: 'Detail',
+		// initialRouteParams: {
+		// 	id: 16493489,
+		// 	index: 1
+		// },
 		defaultNavigationOptions: {
 			headerStyle: {
 				backgroundColor: ORANGE
 			},
-			headerTintColor: PRIMARY_TEXT_COLOR
+			headerTintColor: WHITE
 		}
 	});
 
