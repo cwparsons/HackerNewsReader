@@ -17,10 +17,8 @@ export default class DetailScreen extends React.Component {
 		};
 	}
 
-	static navigationOptions = ({ navigation }) => {
-		return {
-			title: navigation.getParam('title'),
-		};
+	static navigationOptions = {
+		title: 'Comments',
 	};
 
 	componentDidMount() {
