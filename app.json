@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Hacker News Reader",
+    "name": "HN Reader",
     "slug": "HackerNewsReader",
+    "description": "A sample Hacker News reader built using React Native.",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
