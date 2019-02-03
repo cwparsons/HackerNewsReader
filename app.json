@@ -30,6 +30,18 @@
         "backgroundColor": "#ff6500",
         "foregroundImage": "./assets/icon-android/icon-foreground.png"
       }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "christopher-parsons",
+            "project": "hackernewsapp",
+            "authToken": "***REMOVED***"
+          }
+        }
+      ]
     }
   }
 }
