@@ -33,7 +33,10 @@
         "backgroundColor": "#ff6500",
         "backgroundImage": "./assets/icon-android/icon-background.png",
         "foregroundImage": "./assets/icon-android/icon-foreground.png"
-      }
+      },
+      "permissions": [
+        "VIBRATE"
+      ]
     },
     "githubUrl": "https://github.com/cwparsons/HackerNewsReader"
   }
