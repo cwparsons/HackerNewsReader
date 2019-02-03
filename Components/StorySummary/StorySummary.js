@@ -37,6 +37,10 @@ export class StorySummary extends React.Component {
 	}
 
 	async setViewedStatus(hasViewedValue = 'true') {
+		this.setState({
+			hasViewed: true
+		});
+
 		try {
 			await AsyncStorage.setItem(this.hasViewedKey, hasViewedValue);
 
@@ -46,7 +50,9 @@ export class StorySummary extends React.Component {
 		}
 	}
 
-	onItemCommentPress() {
+	async onItemCommentPress() {
+		await this.setViewedStatus();
+
 		this.props.navigation.navigate('Detail', {
 			index: this.props.index,
 			item: this.props.item
@@ -54,10 +60,6 @@ export class StorySummary extends React.Component {
 	}
 
 	async onItemUrlPress() {
-		this.setState({
-			hasViewed: true
-		});
-
 		await this.setViewedStatus();
 
 		Linking.openURL(this.props.item.url);
