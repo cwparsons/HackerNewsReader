@@ -5,9 +5,9 @@ import GetStoryDetail from '../Services/GetStoryDetail';
 import CommentList from '../Components/CommentList';
 import LoadingIndicator from '../Components/LoadingIndicator';
 import { StorySummaryPresentation } from '../Components/StorySummary/StorySummaryPresentation';
-import { BACKGROUND_COLOR, pt } from '../Configuration/globalStyles';
+import { GREY_DARK } from '../Configuration/globalStyles';
 
-export default class DetailScreen extends React.Component {
+export class DetailScreen extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -37,7 +37,7 @@ export default class DetailScreen extends React.Component {
 	render() {
 		return (
 			<ScrollView style={{
-				backgroundColor: BACKGROUND_COLOR
+				backgroundColor: GREY_DARK
 			}}>
 				{
 					this.state.data || this.props.navigation.getParam('index').title ?

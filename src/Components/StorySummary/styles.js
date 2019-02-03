@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { pt, FONT_SIZE, ORANGE, WHITE, WHITE_70, LIGHT_GREY } from '../../Configuration/globalStyles';
+import { pt, FONT_SIZE, ORANGE, WHITE, WHITE_70, GREY_LIGHT } from '../../Configuration/globalStyles';
 
 export const styles = StyleSheet.create({
 	row: {
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
 		width: pt(6)
 	},
 	rankViewed: {
-		backgroundColor: LIGHT_GREY
+		backgroundColor: GREY_LIGHT
 	},
 	rankNotViewed: {
 		backgroundColor: ORANGE

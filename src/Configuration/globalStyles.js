@@ -16,12 +16,12 @@ export const LINE_HEIGHT_SMALL = SECONDARY_FONT_SIZE * LINE_HEIGHT_RATIO;
 
 // Colours
 
-export const WHITE = '#ffffff';
 export const ORANGE = '#ff6500';
-export const LIGHT_GREY = '#444';
+export const GREY_LIGHT = '#444';
+export const GREY_DARK = '#212121';
 
-export const BACKGROUND_COLOR = '#212121';
 
+export const WHITE = '#ffffff';
 export const WHITE_70 = 'rgba(255, 255, 255, 0.70)';
 export const WHITE_50 = 'rgba(255, 255, 255, 0.50)';
 export const WHITE_25 = 'rgba(255, 255, 255, 0.25)';

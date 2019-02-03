@@ -1,11 +1,8 @@
-// prettier.config.js or .prettierrc.js
-module.exports = {
-	arrowParens: 'always',
-	bracketSpacing: true,
-	jsxBracketSameLine: false,
-	semi: true,
-	singleQuote: true,
-	tabs: true,
-	tabWidth: 2,
-	trailingComma: 'none'
-};
+export const arrowParens = 'always';
+export const bracketSpacing = true;
+export const jsxBracketSameLine = false;
+export const semi = true;
+export const singleQuote = true;
+export const tabs = true;
+export const tabWidth = 2;
+export const trailingComma = 'none';

@@ -1,6 +1,7 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation';
-import HomeScreen from './HomeScreen';
-import DetailScreen from './DetailScreen';
+
+import { HomeScreen } from './HomeScreen';
+import { DetailScreen } from './DetailScreen';
 import { ORANGE, WHITE } from '../Configuration/globalStyles';
 
 const AppNavigator = createStackNavigator(

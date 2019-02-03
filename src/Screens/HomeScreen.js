@@ -1,9 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
+
 import StoryList from '../Components/StoryList';
 import { GetTopStories } from '../Services/GetTopStories';
 
-export default class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
 	constructor(props) {
 		super(props);
 
