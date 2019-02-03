@@ -43,6 +43,10 @@ export const styles = StyleSheet.create({
 	contentContainer: {
 		paddingLeft: pt(1)
 	},
+	deletedText: {
+		color: WHITE,
+		marginBottom: pt(2)
+	},
 	noCommentsText: {
 		color: WHITE
 	}

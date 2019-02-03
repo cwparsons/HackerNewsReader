@@ -17,7 +17,9 @@ export class CommentPresentation extends React.PureComponent {
 					}
 				>
 					<View style={[GLOBAL_STYLES.ROW, styles.metadataContainer]}>
-						<Text style={styles.userText}>{this.props.user}</Text>
+						<Text style={styles.userText}>
+							{this.props.deleted ? '[deleted]' : this.props.user}
+						</Text>
 						<Text style={styles.metadataText}>{this.props.time_ago}</Text>
 
 						{this.props.isExpanded ? null : (
@@ -32,7 +34,13 @@ export class CommentPresentation extends React.PureComponent {
 							</View>
 							<View style={styles.contentColumn}>
 								<View style={styles.contentContainer}>
-									<HtmlView html={this.props.content} />
+									{this.props.deleted ? (
+										<View>
+											<Text style={styles.deletedText}>[deleted]</Text>
+										</View>
+									) : (
+										<HtmlView html={this.props.content} />
+									)}
 								</View>
 
 								{this.props.comments ? (
