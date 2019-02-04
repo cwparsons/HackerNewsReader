@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 /**
  * @param {number} n
  */
-export function pt(n) {
+export function pt(n: number) {
 	return n * 8;
 }
 

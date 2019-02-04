@@ -1,10 +1,10 @@
-const TEMPLATE = (page) => `https://api.hnpwa.com/v0/news/${page}.json`;
+const TEMPLATE = (page: string) => `https://api.hnpwa.com/v0/news/${page}.json`;
 
 export async function GetTopStories(currentPage = 1) {
 	try {
 		console.debug(`Trying to receive top stories from page ${currentPage}`);
 
-		const topStoriesRequest = await fetch(TEMPLATE(currentPage));
+		const topStoriesRequest = await fetch(TEMPLATE(currentPage.toString()));
 
 		console.debug(
 			`Retrieved top stories: ${JSON.stringify(topStoriesRequest)}`

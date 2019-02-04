@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Text, TouchableNativeFeedback, View } from 'react-native';
 
 import CommentList from '../CommentList';
@@ -6,9 +6,19 @@ import HtmlView from '../HtmlView';
 
 import { GLOBAL_STYLES } from '../../Configuration/globalStyles';
 import { styles } from './styles';
+import { IComment } from '../../Interfaces/IComment';
 
-export class CommentPresentation extends React.PureComponent {
-	render() {
+interface ICommentPresentationProps extends IComment {
+	onGutterPress: () => void;
+	onLinkPress: (e: Event, href: string) => void;
+	isExpanded: boolean;
+	deleted?: boolean;
+}
+
+export class CommentPresentation extends React.PureComponent<
+	ICommentPresentationProps
+> {
+	public render() {
 		return (
 			<TouchableNativeFeedback onLongPress={this.props.onGutterPress}>
 				<View
@@ -28,7 +38,7 @@ export class CommentPresentation extends React.PureComponent {
 					</View>
 
 					{this.props.isExpanded ? (
-						<View style={[GLOBAL_STYLES.ROW, styles.childContainer]}>
+						<View style={GLOBAL_STYLES.ROW}>
 							<View>
 								<View style={styles.collapseColumn} />
 							</View>
@@ -41,13 +51,14 @@ export class CommentPresentation extends React.PureComponent {
 									) : (
 										<HtmlView
 											html={this.props.content}
+											id={this.props.id}
 											onLinkPress={this.props.onLinkPress}
 										/>
 									)}
 								</View>
 
 								{this.props.comments ? (
-									<CommentList comments={this.props.comments} root={false} />
+									<CommentList comments={this.props.comments} isRoot={false} />
 								) : null}
 							</View>
 						</View>

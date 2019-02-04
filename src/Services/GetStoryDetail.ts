@@ -1,9 +1,9 @@
-const TEMPLATE = (id) => `https://api.hnpwa.com/v0/item/${id}.json`;
+const TEMPLATE = (id: string) => `https://api.hnpwa.com/v0/item/${id}.json`;
 
 /**
  * @param {number} id
  */
-export default async function GetStoryDetail(id) {
+export default async function GetStoryDetail(id: number) {
 	try {
 		// Use test data instead.
 		// if (__DEV__) {
@@ -12,7 +12,7 @@ export default async function GetStoryDetail(id) {
 
 		console.debug(`Trying to retrieve the story details for item ${id}`);
 
-		const storyDetailResponse = await fetch(TEMPLATE(id));
+		const storyDetailResponse = await fetch(TEMPLATE(id.toString()));
 
 		console.debug(
 			`Retrieved the story details for item ${id}: ${JSON.stringify(

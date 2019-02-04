@@ -1,33 +1,49 @@
-import React from 'react';
+import * as React from 'react';
 import { AsyncStorage, Linking } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 
 import { StorySummaryPresentation } from './StorySummaryPresentation';
 
-export class StorySummary extends React.Component {
-	constructor(props) {
+interface IStorySummaryProps {
+	index: number;
+	item: any;
+	navigation: NavigationScreenProp<any, any>;
+}
+
+interface IStorySummaryState {
+	hasViewed: boolean;
+}
+
+export class StorySummary extends React.Component<
+	IStorySummaryProps,
+	IStorySummaryState
+> {
+	private _hasViewedKey: string;
+
+	constructor(props: IStorySummaryProps) {
 		super(props);
 
 		this.onItemCommentPress = this.onItemCommentPress.bind(this);
 		this.onItemUrlPress = this.onItemUrlPress.bind(this);
 
-		this.hasViewedKey = `Item:${this.props.item.id}:HasViewed`;
-
-		this.state = {
-			hasViewed: false
-		};
+		this._hasViewedKey = `Item:${this.props.item.id}:HasViewed`;
 	}
 
-	async componentDidMount() {
+	public readonly state = {
+		hasViewed: false
+	};
+
+	public async componentDidMount() {
 		const hasViewed = await this.getViewedStatus();
 
 		this.setState({ hasViewed });
 	}
 
-	async getViewedStatus() {
+	private async getViewedStatus() {
 		try {
-			hasViewed = await AsyncStorage.getItem(this.hasViewedKey);
+			const hasViewed = await AsyncStorage.getItem(this._hasViewedKey);
 
-			if (hasViewed != null) {
+			if (hasViewed !== null) {
 				return hasViewed === 'true';
 			}
 		} catch (e) {
@@ -41,13 +57,13 @@ export class StorySummary extends React.Component {
 		return false;
 	}
 
-	async setViewedStatus(hasViewedValue = 'true') {
+	private async setViewedStatus(hasViewedValue = 'true') {
 		this.setState({
 			hasViewed: true
 		});
 
 		try {
-			await AsyncStorage.setItem(this.hasViewedKey, hasViewedValue);
+			await AsyncStorage.setItem(this._hasViewedKey, hasViewedValue);
 
 			console.log(`Set viewed status for ${this.props.item.id} to true.`);
 		} catch (e) {
@@ -66,13 +82,13 @@ export class StorySummary extends React.Component {
 		});
 	}
 
-	async onItemUrlPress() {
+	private async onItemUrlPress() {
 		await this.setViewedStatus();
 
-		Linking.openURL(this.props.item.url);
+		await Linking.openURL(this.props.item.url);
 	}
 
-	render() {
+	public render() {
 		return (
 			<StorySummaryPresentation
 				{...this.props}

@@ -1,15 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 
 import { styles } from './styles';
+import { IStory } from '../../Interfaces/IStory';
 
-export class StorySummaryPresentation extends React.PureComponent {
-	render() {
+interface IStorySummaryPresentation {
+	hasViewed?: boolean;
+	index: number;
+	item: IStory;
+	onItemUrlPress?: () => void;
+	onItemCommentPress?: () => void;
+}
+
+export class StorySummaryPresentation extends React.PureComponent<
+	IStorySummaryPresentation
+> {
+	public render() {
 		return (
 			<View>
 				<TouchableHighlight onPress={this.props.onItemUrlPress}>
 					<View style={styles.row}>
-						<View style={styles.rankContainer}>
+						<View>
 							<View
 								style={[
 									styles.rank,

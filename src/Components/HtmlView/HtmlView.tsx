@@ -1,30 +1,41 @@
-import React from 'react';
+import * as React from 'react';
 import { Text } from 'react-native';
-import HTML from 'react-native-render-html';
+import * as HTML from 'react-native-render-html';
 
 import { tagsStyles } from './styles';
 
-export class HtmlView extends React.PureComponent {
-	render() {
+interface IHtmlViewProps {
+	html: string;
+	id: number;
+	onLinkPress: (e: Event, href: string) => void;
+}
+
+export class HtmlView extends React.PureComponent<IHtmlViewProps> {
+	public render() {
 		return (
 			<HTML
 				{...this.props}
-				alterData={({ parent, data }) => {
+				alterData={({ parent, data }: { parent: any; data: string }) => {
 					if (parent && parent.name === 'code') {
 						return data.replace(/\n/g, '___CODE_NEWLINE___');
 					}
 				}}
 				tagsStyles={tagsStyles}
 				renderers={{
-					code: (_htmlAttribs, _children, _convertedCssStyles, passProps) => {
+					code: (
+						_htmlAttribs: any,
+						_children: any,
+						_convertedCssStyles: any,
+						passProps: any
+					) => {
 						const children = passProps.rawChildren
-							.map((rawChild) => rawChild.data)
+							.map((rawChild: any) => rawChild.data)
 							.join('')
 							.split('___CODE_NEWLINE___');
 
 						return (
 							<React.Fragment key={passProps.key}>
-								{children.map((line, index) => (
+								{children.map((line: string, index: number) => (
 									<Text
 										key={`${this.props.id}-code-${index}`}
 										style={{ fontFamily: 'monospace' }}

@@ -1,9 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {
-	pt,
-	WHITE,
-	FONT_SIZE
-} from '../../Configuration/globalStyles';
+import { pt, WHITE, FONT_SIZE } from '../../Configuration/globalStyles';
 
 export const styles = StyleSheet.create({
 	noCommentsContainer: {

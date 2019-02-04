@@ -1,14 +1,25 @@
-import React from 'react';
-import { View } from 'react-native';
+import * as React from 'react';
+import { NavigationScreenProp } from 'react-navigation';
 
 import StoryList from '../Components/StoryList';
 import { GetTopStories } from '../Services/GetTopStories';
+import { IStory } from '../Interfaces/IStory';
 
-export class HomeScreen extends React.Component {
-	constructor(props) {
+interface IHomeScreenProps {
+	navigation: NavigationScreenProp<any>;
+}
+
+interface IHomeScreenState {
+	isRefreshing: boolean;
+	data: IStory[];
+}
+
+export class HomeScreen extends React.Component<
+	IHomeScreenProps,
+	IHomeScreenState
+> {
+	constructor(props: IHomeScreenProps) {
 		super(props);
-
-		this.currentPage = 1;
 
 		this.state = {
 			isRefreshing: false,
@@ -16,15 +27,17 @@ export class HomeScreen extends React.Component {
 		};
 	}
 
+	private currentPage = 1;
+
 	static navigationOptions = {
 		title: 'Hacker News'
 	};
 
-	componentDidMount() {
-		this.getStories();
+	public async componentDidMount() {
+		await this.getStories();
 	}
 
-	async getStories() {
+	private async getStories() {
 		this.setState({
 			isRefreshing: true
 		});
@@ -39,7 +52,7 @@ export class HomeScreen extends React.Component {
 		});
 	}
 
-	async getMoreStories() {
+	private async getMoreStories() {
 		const moreData = await GetTopStories(++this.currentPage);
 
 		this.setState({
@@ -47,7 +60,7 @@ export class HomeScreen extends React.Component {
 		});
 	}
 
-	render() {
+	public render() {
 		return (
 			<StoryList
 				data={this.state.data}
